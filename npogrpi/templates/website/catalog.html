@@ -1,0 +1,36 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  Каталог продукции
+{% endblock %}
+{% block meta_tag %}
+<meta name="description" content="Краткое описание страницы">
+<meta
+  name="keywords"
+  content="ключевое слово 1, ключевое слово 2, ключевое слово 3">
+{% endblock %}
+{% block content %}
+<nav>
+  <ul class="breadcrumbs">
+    <li><a href="{% url 'website:index' %}">Главная</a></li>
+    <li>Каталог</li>
+  </ul>
+</nav>
+<div class="button-container">
+<a href="javascript:history.back()" class="btn">Назад</a>
+<a href="{% url 'calculator:product_search' %}" class="btn">Подборать оборудование</a>
+<a href="{% url 'calculator:mgrp' %}" class="btn">Подобрать комплект МГРП</a>
+</div>
+<section class="catalog-container">
+    {% for page in page_obj %}
+    <section class="catalog-section">
+      <div class="catalog-image">
+        <img src="{{page.image.url}}" alt={{ page.name }}>
+   		</div>
+   		 <div class="catalog-info">
+            <h2>{{ page.name }}</h2>
+            <a href="{% url 'website:type_product' type_slug=page.slug %}" class="details-button">Подробнее</a>
+        </div>
+</section>
+{% endfor %} 
+{% endblock %}

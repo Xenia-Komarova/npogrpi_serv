@@ -1,0 +1,51 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+Результат
+{% endblock %}
+{% block content %}
+<h1 align="center">Результат подбора оборудования для {{ stages_quantity }} стадий </h1>
+{% if products %}
+<div class="container">
+<div class="table-container">
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Тип продукции</th>
+                <th>Наименование продукции</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.type }}</td>
+                    <td><a href="{% url 'website:product_card' type_slug=product.type.slug product_slug=product.slug %}" 
+                        target="_blank">{{ product.name }}</a></td>
+                </tr>
+            {% endfor %} 
+            <table class="center">
+                <thead>
+                    <tr>
+                        <th>Количество</th>
+                    </tr>
+                    {% for quanity in quanitys.values %} 
+                    <tr>
+                        <td>{{ quanity }}</td>
+                    </tr>  
+                    {% endfor %}         
+                </thead>
+                <tbody>
+        </tbody>
+    </table>
+</div>
+</div>
+<h2>Общая стоимость оборудования: {{ total_price }} руб.</h2>
+<p>Помимо представленного комплекта для МГРП, спускаемый хвостовик должен быть оснащен полным набором 
+    технологической оснастки - в зависимости от вида заканчивания (цементируемое или нецементируемое) 
+    и индивидуальных потребностей конкретного заказчика. 
+    Со всей предлагаемой оснасткой хвостовиков вы можете ознакомиться в электронном <a href="{% url 'website:catalog' %}">каталоге.</a></p>
+<a href="{% url 'website:contacts' %}"> Наши контакты</a>
+{% else %}
+    <p>Оборудование не найдено. Свяжитесь с нашими менеджерами.</p>
+{% endif %}
+{% endblock %}

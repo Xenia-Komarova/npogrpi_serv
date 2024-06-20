@@ -1,0 +1,39 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+{{ type_instance.name }}
+{% endblock %}
+{% block meta_tag %}
+<meta name="description" content="{{ type_instance.seo_description }}">
+<meta
+  name="keywords"
+  content="{{ type_instance.seo_keywords }}">
+{% endblock %}
+{% block content %}
+<nav>
+  <ul class="breadcrumbs">
+    <li><a href="{% url 'website:index' %}">Главная</a></li>
+    <li><a href="{% url 'website:catalog' %}">Каталог</a></li>
+    <li>{{ type_instance.name }}</li>
+  </ul>
+</nav>
+<div class="button-container">
+  <a href="javascript:history.back()" class="btn">Назад</a>
+  <a href="{% url 'calculator:product_search' %}" class="btn">Подборать оборудование</a>
+  <a href="{% url 'calculator:mgrp' %}" class="btn">Подобрать комплект МГРП</a>
+</div>
+<h2>{{ type_instance.name }}</h2>
+<section class="catalog-container">
+    {% for product in product_list %}
+    <section class="catalog-section">
+      <div class="catalog-image">
+        <img src="{{ product.image.url }}" alt={{ product.name }}>
+   		</div>
+   		 <div class="catalog-info">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description|safe }}
+              <a href="{% url 'website:product_card' type_slug=type_instance.slug product_slug=product.slug %}" class="details-button">Подробнее</a>
+        </div>
+</section>
+{% endfor %} 
+{% endblock %}

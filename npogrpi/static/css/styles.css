@@ -1,0 +1,489 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+}
+
+.menu > li {
+    padding: 10px 20px;
+	text-align: center;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #333;
+	text-align: left;
+}
+
+.submenu:hover ul {
+    display: block;
+}
+
+.hero {
+    position: relative;
+}
+
+.full-width {
+    width: 100%;
+    height: 50%;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+.btn {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 10px; /* Добавляем немного отступа между кнопками */
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;  /* Светлый фон для лучшей читаемости */
+}
+
+.about h2 {
+    flex: 1 0 25%;  /* Занимает 25% ширины родителя */
+    color: red;
+    font-size: 36px;  /* Увеличенный размер шрифта */
+    margin: 0;  /* Удаление стандартных отступов */
+    padding-right: 20px;  /* Отступ справа для отделения заголовка от текста */
+}
+
+.about-content {
+    flex: 1 0 75%;  /* Занимает оставшиеся 75% ширины родителя */
+    text-align: left;
+}
+
+.advantages-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;  /* Светлый фон для лучшей читаемости */
+  }
+  
+  h2 {
+    flex: 1 0 25%;  /* Занимает 25% ширины родителя */
+    color: red;
+    font-size: 36px;  /* Увеличенный размер шрифта */
+    margin: 0;  /* Удаление стандартных отступов */
+    padding-right: 20px;  /* Отступ справа для отделения заголовка от текста */
+  }
+  
+  .advantages {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .advantage {
+    width: 25%;
+    margin-bottom: 20px;
+  }
+  
+  .advantage img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .advantage h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .advantage p {
+    font-size: 14px;
+  }
+
+.details-button {
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 10px;
+    background-color: white;  /* Белый фон кнопки */
+    color: green;  /* Зеленый текст */
+    border: 1px solid green;  /* Тонкая зеленая рамка */
+    border-radius: 5px;  /* Скругленные углы */
+    text-decoration: none;  /* Убираем подчеркивание текста */
+    font-size: 14px;  /* Размер текста */
+    cursor: pointer;  /* Курсор в виде указателя */
+    transition: background-color 0.3s, color 0.3s;  /* Плавное изменение цвета при наведении */
+}
+
+.details-button:hover {
+    background-color: green;  /* Зеленый фон при наведении */
+    color: white;  /* Белый текст при наведении */
+}
+
+
+.partners {
+    background-color: #f8f9fa;
+    text-align: left;
+    padding: 20px;
+}
+
+.partners h2 {
+    color: red;
+    font-size: 36px;
+}
+
+.carousel {
+    position: relative;
+    margin-top: 20px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
+}
+
+.carousel-track {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.carousel-track li {
+    padding: 10px;
+}
+
+.carousel-track img {
+    width: 100px; /* Задайте размер в соответствии с вашим дизайном */
+    height: auto;
+    display: block;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-button {
+    left: 0;
+}
+
+.right-button {
+    right: 0;
+}
+
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: left;
+    padding: 10px 100px;
+}
+
+footer .contacts {
+    list-style: none;
+    padding: 0;
+}
+
+footer .contacts li {
+    padding: 5px;
+}
+
+/* Каталог продукции */
+
+/* Общий контейнер для каталога */
+.catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Выравниваем элементы по центру */
+    gap: 20px; /* Пространство между секциями */
+    padding: 20px;
+}
+
+.catalog-section {
+    flex: 0 0 40%; /* Ширина каждой секции около 40% */
+    display: flex;
+    align-items: flex-start;
+    background-color: #f8f9fa;
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+}
+
+.catalog-image {
+    flex: 0 0 300px; /* Фиксированная ширина для блока с картинкой */
+    height: 300px; /* Высота равна ширине для создания квадрата */
+    overflow: hidden;
+}
+
+.catalog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.catalog-info {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.catalog-section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.details-button {
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 10px;
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.details-button:hover {
+    background-color: blue;
+    color: white;
+}
+
+/* Контакты компании */
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .contact-info .left {
+    width: 45%;
+  }
+  
+  .contact-info .right {
+    width: 45%;
+  }
+  
+  .contact-info h3 {
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Карточка продукта */
+
+  .product-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.product-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-info {
+    display: flex;
+}
+
+.product-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-details {
+    flex: 2;
+}
+
+.product-type {
+    font-weight: bold;
+}
+
+.product-specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.product-specs th,
+.product-specs td {
+    border: 1px solid #070707;
+    padding: 8px;
+}
+
+.product-specs th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.product-specs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table-container {
+    display: flex;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-container table {
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table-container th {
+    background-color: #f2f2f2;
+}
+
+/* Хллебные крошки */
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumbs li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs li:not(:last-child):after {
+    content: "›";
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #999;
+}
+
+.breadcrumbs li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.breadcrumbs li a:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    margin-top: 20px; /* Добавляем отступ сверху, если нужно */
+}

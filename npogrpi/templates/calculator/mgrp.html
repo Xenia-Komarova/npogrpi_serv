@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  Подбор оборудования
+{% endblock %}
+{% block content %}
+<nav>
+  <ul class="breadcrumbs">
+    <li><a href="{% url 'website:index' %}">Главная</a></li>
+    <li>Подбор коплекта МГРП</li>
+</ul>
+</nav>
+<div class="button-container">
+  <a href="javascript:history.back()" class="btn">Назад</a>
+</div>
+<h1>Форма для подбора оборудования</h1>
+<div class="form-center">
+<form method="post">
+    {% csrf_token %}
+    {{ form_mgrp.as_p }}
+    <button type="submit">Подобрать</button>
+</form>
+</div>
+<p>Нажимая кнопку «Найти», вы соглашаетесь на <a href="{% url 'website:politico' %}">обработку персональных данных</a></p>
+{% endblock %}

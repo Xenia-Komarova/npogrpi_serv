@@ -1,0 +1,59 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  НПО ГРП ИНСТРУМЕНТ
+{% endblock %}
+{% block meta_tag %}
+<meta name="description" content="Краткое описание страницы">
+<meta
+  name="keywords"
+  content="ключевое слово 1, ключевое слово 2, ключевое слово 3">
+{% endblock %}
+{% block content %}
+{% for page in page_obj %}
+<section class="hero">
+  <img class="full-width" src="{{ page.main_image.url }}" alt="Баннер">
+  <div class="hero-text">
+      <h1>Добро пожаловать в нашу компанию!</h1>
+      <p>Мы предлагаем высококачественные услуги.</p>
+      <a href="{% url 'website:catalog' %}" class="btn">Перейти в каталог</a>
+  </div>
+</section>
+<div class="button-container">
+<a href="{% url 'calculator:product_search' %}" class="btn">Подборать оборудование</a>
+<a href="{% url 'calculator:mgrp' %}" class="btn">Подобрать комплект МГРП</a>
+</div>
+<section class="about">
+    <h2>О компании</h2>
+    <div class="about-content">
+      <p> {{ page.about }} </p>
+    <a href="{% url 'website:about' %}" class="details-button">Подробнее</a>
+  </div>
+</section>
+{% endfor %}
+<div class="advantages-container">
+  <h2>Наши преимущества</h2>
+      {% for advantage in advantages %}
+        <div class="advantage">
+           <img src="{{ advantage.image.url }}" />
+           <h3>{{ advantage.name }}</h3>
+           <p>{{ advantage.text }} </p>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+  <section class="partners">
+    <h2>Наши партнеры</h2>
+    <div class="carousel">
+        <button class="carousel-button left-button">&#10094;</button>
+        <div class="carousel-track-container">
+            <ul class="carousel-track">
+              {% for partner in partners %}
+                <li><img src="{{ partner.image.url }}" alt="{{ partner.name }}"></li>
+              {% endfor %}
+            </ul>
+        </div>
+        <button class="carousel-button right-button">&#10095;</button>
+    </div>
+	</section> 
+{% endblock %}

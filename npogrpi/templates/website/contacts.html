@@ -1,0 +1,45 @@
+﻿{% extends 'base.html' %}
+{% block title %}
+Наши контакты
+{% endblock %} 
+{% block meta_tag %}
+<meta name="description" content="Краткое описание страницы">
+<meta
+  name="keywords"
+  content="ключевое слово 1, ключевое слово 2, ключевое слово 3">
+{% endblock %}
+{% block content %}
+<nav>
+  <ul class="breadcrumbs">
+    <li><a href="{% url 'website:index' %}">Главная</a></li>
+    <li>Наши контакты</li>
+  </ul>
+</nav>
+<div class="contact-container">
+  <h2>Наши контакты</h2>
+
+  <div class="contact-info">
+    <div class="left">
+      <h3>Информация о компании:</h3>
+    {% for page in page_obj %}
+      <p><strong>Адрес:</strong>{{ page.adress }}</p>
+      <p><strong>E-mail:</strong> <a href="mailto:info@grpi.ru">{{ page.email }}</a></p>
+      <p><strong>Телефон:</strong> <a href="tel:+74912470006">{{ page.telephone }}</a></p>
+    </div>
+    {% endfor %}
+    <div class="right">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+    {% if success_message %}
+    <div class="alert alert-success">
+        {{ success_message }}
+    </div>
+    {% endif %}
+    </div>
+  </div>
+  <p>Нажимая кнопку «Отправить», вы соглашаетесь на <a href="{% url 'website:politico' %}">обработку персональных данных</a></p>
+</div>
+{% endblock %} 

@@ -1,0 +1,26 @@
+﻿{% load static %}
+<nav>
+    <ul class="menu">
+        <li>
+          <a class="navbar-brand" href="{% url 'website:index' %}">
+            <img src={% static 'img/logo.png' %} width="250" height="100" alt="logo">
+          </a>
+                {% for menu_item in menu_items %}
+                    {% if menu_item.get_children %}
+                        <li class="submenu">
+                            <a href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+                            <ul>
+                                {% for m_item in menu_item.get_children %}
+                                    <li><a href="{{ m_item.url }}">{{ m_item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+        </ul>
+</nav>

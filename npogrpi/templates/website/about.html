@@ -1,0 +1,54 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  О компании
+{% endblock %}
+{% block meta_tag %}
+<meta name="description" content="Краткое описание страницы">
+<meta
+  name="keywords"
+  content="ключевое слово 1, ключевое слово 2, ключевое слово 3">
+{% endblock %}
+{% block content %}
+<nav>
+<ul class="breadcrumbs">
+  <li><a href="{% url 'website:index' %}">Главная</a></li>
+  <li>О компании</li>
+</ul>
+</nav>
+{% for page in page_obj %}
+<section class="about">
+  <h2>{{ page.title }}</h2>
+  <div class="about-content">
+    <p> {{ page.text|safe }} </p>
+</div>
+</section>
+{% endfor %}
+
+  <div class="advantages-container">
+    <h2>Наши преимущества</h2>
+        {% for advantage in advantages %}
+          <div class="advantage">
+             <img src="{{ advantage.image.url }}" />
+             <h3>{{ advantage.name }}</h3>
+             <p>{{ advantage.text }} </p>
+          </div>
+        {% endfor %}  
+      </div>
+  </div>
+  
+    <section class="partners">
+      <h2>Наши партнеры</h2>
+      <div class="carousel">
+          <button class="carousel-button left-button">&#10094;</button>
+          <div class="carousel-track-container">
+              <ul class="carousel-track">
+                {% for partner in partners %}
+                  <li><img src="{{ partner.image.url }}" alt="{{ partner.name }}"></li>
+                {% endfor %}
+              </ul>
+          </div>
+          <button class="carousel-button right-button">&#10095;</button>
+      </div>
+    </section> 
+{% endblock %}

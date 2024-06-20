@@ -1,0 +1,16 @@
+﻿{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+Результат
+{% endblock %}
+{% block content %}
+<div class="button-container">
+    <a href="javascript:history.back()" class="btn">Назад</a>
+</div>
+<p>Оборудование не найдено. Свяжитесь с нашими менеджерами.</p>
+<a href="{% url 'website:contacts' %}"> Наши контакты</a>
+<ul>
+    <li>Телефон: <a href="tel:+74912470006">+7 4912 47-00-06</a></li>
+    <li>Email: <a href="mailto:info@grpi.ru">info@grpi.ru</a></li>
+</ul>
+{% endblock %}
