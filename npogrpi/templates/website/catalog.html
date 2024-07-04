@@ -1,7 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% load thumbnail %}
+{% load i18n %}
 {% block title %}
-  Каталог продукции
+{% trans "Каталог продукции" %}
 {% endblock %}
 {% block meta_tag %}
 <meta name="description" content="Краткое описание страницы">
@@ -28,7 +29,7 @@
         <img src="{{page.image.url}}" alt={{ page.name }}>
    		</div>
    		 <div class="catalog-info">
-            <h2>{{ page.name }}</h2>
+            <h2>{{ page.display_name }}</h2>
             <a href="{% url 'website:type_product' type_slug=page.slug %}" class="details-button">Подробнее</a>
         </div>
 </section>

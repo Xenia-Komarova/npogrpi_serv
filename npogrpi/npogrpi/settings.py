@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 load_dotenv()
 
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -92,23 +94,23 @@ WSGI_APPLICATION = 'npogrpi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
-   'default': {
-       'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-       'NAME': os.getenv('DB_NAME', default='npogrpi'),
-       'USER': os.getenv('POSTGRES_USER', default='npo_user'),
-       'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='Vfnfljh2010'),
-       'HOST': os.getenv('DB_HOST', default='localhost'),
-       'PORT': os.getenv('DB_PORT', default='5432'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-} 
+}
+
+#DATABASES = {
+#   'default': {
+#       'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+#       'NAME': os.getenv('DB_NAME', default='npogrpi'),
+#       'USER': os.getenv('POSTGRES_USER', default='npo_user'),
+#       'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='Vfnfljh2010'),
+#       'HOST': os.getenv('DB_HOST', default='localhost'),
+#       'PORT': os.getenv('DB_PORT', default='5432'),
+#    }
+#} 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -132,7 +134,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 TIME_ZONE = 'UTC'
 
@@ -187,18 +198,22 @@ LOGGING = {
         },
     },
     'handlers': {
-        'file': {
+        'console': {
             'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGS_DIR / 'django.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
-            'backupCount': 5,
-            'formatter': 'standard',
+            'class': 'logging.StreamHandler',
         },
+        #'file': {
+        #    'level': 'DEBUG',
+        #   'class': 'logging.handlers.RotatingFileHandler',
+        #    'filename': LOGS_DIR / 'django.log',
+        #    'maxBytes': 1024 * 1024 * 5,  # 5 MB
+        #    'backupCount': 5,
+        #    'formatter': 'standard',
+        #},
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
         },

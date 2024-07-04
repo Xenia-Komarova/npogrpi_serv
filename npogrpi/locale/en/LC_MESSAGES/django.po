@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-21 15:16+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\npogrpi\settings.py:140
+msgid "English"
+msgstr ""
+
+#: .\npogrpi\settings.py:141
+msgid "Russia"
+msgstr ""
+
+msgid "Тип оборудования"
+msgstr "Type of equipment"
+
+msgid "Условный диаметр колонны"
+msgstr ""
+
+msgid "Условный диаметр хвостовика"
+msgstr ""
+
+msgid "Диаметр открытого ствола"
+msgstr ""
+
+msgid "Наружный диаметр оснастки"
+msgstr ""
+
+msgid "Внутренний диаметр оснастки"
+msgstr ""
+
+msgid "Длина оснастки"
+msgstr ""
+
+msgid "Количество стадий"
+msgstr "Number of stages"
+
+msgid "Количество стадий должно быть положительным числом"
+msgstr "The number of stages must be a positive number"
+
+msgid "Ваше имя"
+msgstr "Your name"
+
+msgid "Ваша компания"
+msgstr "Company name"
+
+msgid "Ваш телефон"
+msgstr "Telepone number"
+
+msgid "Ваш Email"
+msgstr "E-email"
+
+msgid "Ваше сообщение"
+msgstr "Message"
+
+msgid "Сообщение успешно отправлено"
+msgstr "The message has been sent successfully"
+
+msgid "Добро пожаловать в нашу компанию!"
+msgstr "Welcome to our company!"
+
+msgid "Мы предлагаем высококачественные услуги."
+msgstr "We offer high-quality services."
+
+msgid "Перейти в каталог"
+msgstr "Go to the catalog"
+
+msgid "Подборать оборудование"
+msgstr "Pick up the equipment"
+
+msgid "Подобрать комплект МГРП"
+msgstr "To choose a set of MFS"
+
+msgid "О компании"
+msgstr "About the company"
+
+msgid "Подробнее"
+msgstr "Read more"
+
+msgid "Наши преимущества"
+msgstr "Our advantages"
+
+msgid "Наши партнеры"
+msgstr "Our partners"
+
+msgid "Главная"
+msgstr "Main page"
+
+msgid "Каталог"
+msgstr "Catalog"
+
+msgid "Назад"
+msgstr "Back"
+
+msgid "Каталог продукции"
+msgstr "Product Catalog"
+
+msgid "Наши контакты"
+msgstr "Our contacts"
+
+msgid "Информация о компании"
+msgstr "Information about the company"
+
+msgid "Адрес"
+msgstr "Address"
+
+msgid "Телефон"
+msgstr "Phone"
+
+msgid "Отправить"
+msgstr "Send"
+
+msgid "Тип"
+msgstr "Type"
+
+msgid "Описание"
+msgstr "Description"
+
+msgid "Характеристики"
+msgstr "Characteristics"
+
+msgid "Значение"
+msgstr "Value"
+
+msgid "Цена"
+msgstr "Price"
+
+msgid "руб."
+msgstr "rub."
+
+msgid "НПО ГРП ИНСТРУМЕНТ"
+msgstr "LLC FRAC TOOLS"
+
+msgid "403 - ДОСТУП ЗАПРЕЩЁН"
+msgstr "403 - ACCESS DENIED"
+
+msgid "У Вас нет доступа к этой странице"
+msgstr "You don't have access to this page"
+
+msgid "403CSRF - Доступ запрещён."
+msgstr "403 CSRF - Access is denied."
+
+msgid "Ошибка 404. Страница не найдена."
+msgstr "Error 404. Page not found."
+
+msgid "Страницы с адресом"
+msgstr "The page with the address"
+
+msgid "не существует"
+msgstr "does not exist"
+
+msgid "Перейдите на"
+msgstr "Go to"
+
+msgid "главную страницу"
+msgstr "the main page"
+
+msgid "Ошибка сервера 500"
+msgstr "Server error 500"
+
+msgid "На сервере произошла непредвиденная ошибка. Возможно сервер устал. Мы все устали. Пожалуйста подождите, скоро ошибка будет исправлена."
+msgstr "An unexpected error has occurred on the server. Perhaps the server is tired. We're all tired. Please wait, the error will be fixed soon."
+
+msgid "Попробуйте вернуться на"
+msgstr "Try to return to"
+
+msgid "Найти"
+msgstr "Search"
+
+msgid "Нажимая кнопку «Найти», вы соглашаетесь на"
+msgstr "By clicking the Search button, you agree to"
+
+msgid "обработку персональных данных"
+msgstr "the processing of personal data"
+
+msgid "Оборудование не найдено. Свяжитесь с нашими менеджерами."
+msgstr "The equipment was not found. Contact our managers."
+
+msgid "Результат"
+msgstr "Result"
+
+msgid "Результат подбора оборудования для"
+msgstr "The result of the selection of equipment for"
+
+msgid "стадий"
+msgstr "stages"
+
+msgid "Тип продукции"
+msgstr "Product Type"
+
+msgid "Наименование продукции"
+msgstr "Product name"
+
+msgid "Количество"
+msgstr "Quantity"
+
+msgid "Общая стоимость оборудования:"
+msgstr "Total cost of the equipment:"
+
+msgid "Помимо представленного комплекта для МГРП, спускаемый хвостовик должен быть оснащен полным набором технологической оснастки - в зависимости от вида заканчивания (цементируемое или нецементируемое) и индивидуальных потребностей конкретного заказчика."
+msgstr "In addition to the MGRP kit presented, the descent shank must be equipped with a full set of technological equipment, depending on the type of completion (cemented or non-cemented) and the individual needs of a particular customer."
+
+msgid "Со всей предлагаемой оснасткой хвостовиков вы можете ознакомиться в электронном"
+msgstr "You can find all the proposed shank accessories in the electronic"
+
+msgid "каталоге."
+msgstr "catalog."

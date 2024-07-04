@@ -8,12 +8,23 @@ class MainPage(models.Model):
                                    help_text='Изображение для главной страницы',
                                    blank=True,
                                    )
-    about = models.TextField(help_text='Описание компании на гланой странице',
-                             verbose_name='Оисание краткое',
+    about = models.TextField(help_text='Описание компании на главной странице',
+                             verbose_name='Описание краткое',
+                             )
+    about_en = models.TextField(help_text='Short description on main page',
+                             verbose_name='Short description',
+                             blank=True,
+                             null=True,
                              )
     main_title = models.CharField(help_text='Заголовок и meta',
                                   verbose_name='Заголовок главной страницы',
                                   max_length=250,
+                                  )
+    main_title_en = models.CharField(help_text='Title and meta tag',
+                                  verbose_name='Title of main page and meta tag',
+                                  max_length=250,
+                                  blank=True,
+                                  null=True,
                                   )
     
     def __str__(self):
@@ -49,8 +60,19 @@ class Advantages(models.Model):
                             verbose_name='Наименование преимущества',
                             max_length=100,
                             )
+    name_en = models.CharField(help_text='Title',
+                            verbose_name='Advantages title',
+                            max_length=100,
+                            blank=True,
+                            null=True,
+                            )
     text = models.TextField(help_text='Описание',
                             verbose_name='Описание преимущества',
+                            )
+    text_en = models.TextField(help_text='Description',
+                            verbose_name='Description of advatages',
+                            blank=True,
+                            null=True,
                             )
     image = models.ImageField(upload_to='media/advantages/',
                               help_text='Загрузите иконку',
@@ -68,8 +90,18 @@ class About(models.Model):
     text = HTMLField(verbose_name='Описание компании',
                             help_text='Текст о компании',
                             )
+    text_en = HTMLField(verbose_name='Descrteion company',
+                            help_text='About company full descrintion',
+                            blank=True,
+                            null=True,
+                            )
     title = models.CharField(verbose_name='Заголовок',
                              max_length=250,
+                             )
+    title_en = models.CharField(verbose_name='Title',
+                             max_length=250,
+                             blank=True,
+                             null=True,
                              )
     
     def __str__(self) -> str:
@@ -90,6 +122,12 @@ class Contacts(models.Model):
     adress = models.TextField(verbose_name='адрес комапании',
                               help_text='почтовый адрес',
                               blank=True,
+                              null=True
+                            )
+    adress_en = models.TextField(verbose_name='Adress',
+                              help_text='Post adress',
+                              blank=True,
+                              null=True
                             )
     
     def __str__(self) -> str:
@@ -103,6 +141,11 @@ class Contacts(models.Model):
 class Type(models.Model):
     name = models.CharField(max_length=300,
                             verbose_name='Тип оборудования',
+                            )
+    name_en = models.CharField(max_length=300,
+                            verbose_name='Type',
+                            blank=True,
+                            null=True
                             )
     slug = models.SlugField(max_length=300,
                             unique=True,
@@ -184,12 +227,21 @@ class Product(models.Model):
     name = models.CharField(max_length=300,
                             verbose_name='Наименование оборудования',
                             )
+    name_en = models.CharField(max_length=300,
+                            verbose_name='Product name',
+                            blank=True,
+                            null=True,
+                            )
     type = models.ForeignKey(Type, 
                              verbose_name='Тип оборудования', 
                              on_delete=models.CASCADE,
                              related_name='products',
                              )
     description = HTMLField(verbose_name='Описание')
+    description_en = HTMLField(verbose_name='Описание',
+                               blank=True,
+                               null=True,
+                               )
     image = models.ImageField(verbose_name='Изображение',
                               upload_to='media/img/product/',
                               help_text='Добавьте файл c изображением'

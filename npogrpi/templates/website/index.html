@@ -1,7 +1,8 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
 {% load thumbnail %}
 {% block title %}
-  НПО ГРП ИНСТРУМЕНТ
+   {{ page_obj.display_main_title }}
 {% endblock %}
 {% block meta_tag %}
 <meta name="description" content="Краткое описание страницы">
@@ -10,12 +11,11 @@
   content="ключевое слово 1, ключевое слово 2, ключевое слово 3">
 {% endblock %}
 {% block content %}
-{% for page in page_obj %}
 <section class="hero">
-  <img class="full-width" src="{{ page.main_image.url }}" alt="Баннер">
+  <img class="full-width" src="{{ page_obj.main_image.url }}" alt="Баннер">
   <div class="hero-text">
-      <h1>Добро пожаловать в нашу компанию!</h1>
-      <p>Мы предлагаем высококачественные услуги.</p>
+      <h1>{% trans "Добро пожаловать в нашу компанию!" %}</h1>
+        <p>{% trans "Мы предлагаем высококачественные услуги." %}</p>
       <a href="{% url 'website:catalog' %}" class="btn">Перейти в каталог</a>
   </div>
 </section>
@@ -26,11 +26,10 @@
 <section class="about">
     <h2>О компании</h2>
     <div class="about-content">
-      <p> {{ page.about }} </p>
+      <p> {{ page_obj.display_about }} </p>
     <a href="{% url 'website:about' %}" class="details-button">Подробнее</a>
   </div>
 </section>
-{% endfor %}
 <div class="advantages-container">
   <h2>Наши преимущества</h2>
       {% for advantage in advantages %}

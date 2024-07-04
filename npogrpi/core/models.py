@@ -15,7 +15,13 @@ class Contact(models.Model):
 
 
 class MenuItem(MPTTModel):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100,
+                            unique=True,
+                            )
+    name_en = models.CharField(max_length=100, 
+                               blank=True,
+                               null=True,
+                               )
     url = models.CharField('Ссылка', max_length=255)
     position = models.PositiveIntegerField('Позиция', default=1)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')

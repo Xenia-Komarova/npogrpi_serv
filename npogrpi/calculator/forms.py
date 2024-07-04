@@ -35,15 +35,15 @@ class ProductSelectionForm(forms.ModelForm):
     class Meta:
         model = ContactSearch
         fields = ['name', 'phone_number', 'email', 'company', 'diameter_column', 'diameter_shank', 'diameter_open_borehole', 'stages_quantity']
-    type_choices = [(type.slug, type.name) for type in Type.objects.filter(inmgrp__in=[True])]
+    #type_choices = [(type.slug, type.name) for type in Type.objects.filter(inmgrp__in=[True])]
     diameter_column = forms.ModelChoiceField(queryset=DiameterColumn.objects.all(), label='Условный диаметр колонны')
     diameter_shank = forms.ModelChoiceField(queryset=DiameterShank.objects.all(), label='Условный диаметр хвостовика')
     diameter_open_borehole = forms.ModelChoiceField(queryset=DiameterOpenBorehole.objects.all(), label='Диаметр открытого ствола')
     stages_quantity = forms.IntegerField(label='Количество стадий')
 
-    #def __init__(self, *args, **kwargs):
-    #    super().__init__(*args, **kwargs)
-    #    self.fields['type'].choices = [(type.slug, type.name) for type in Type.objects.filter(inmgrp=True)]
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['type'].choices = [(type.slug, type.name) for type in Type.objects.filter(inmgrp=True)]
 
 
     def clean(self):

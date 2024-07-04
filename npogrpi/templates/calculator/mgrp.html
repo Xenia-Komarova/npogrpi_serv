@@ -18,7 +18,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form_mgrp.as_p }}
-    <button type="submit">Подобрать</button>
+    <button type="submit">Найти</button>
 </form>
 </div>
 <p>Нажимая кнопку «Найти», вы соглашаетесь на <a href="{% url 'website:politico' %}">обработку персональных данных</a></p>

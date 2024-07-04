@@ -8,19 +8,26 @@
                 {% for menu_item in menu_items %}
                     {% if menu_item.get_children %}
                         <li class="submenu">
-                            <a href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+                            <a href="{{ menu_item.url }}">{{ menu_item.display_name }}</a>
                             <ul>
                                 {% for m_item in menu_item.get_children %}
-                                    <li><a href="{{ m_item.url }}">{{ m_item.name }}</a></li>
+                                    <li><a href="{{ m_item.url }}">{{ m_item.display_name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
                     {% else %}
                         <li>
-                            <a href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+                            <a href="{{ menu_item.url }}">{{ menu_item.display_name }}</a>
                         </li>
                     {% endif %}
 
                 {% endfor %}
+                <a href="{{ switch_lang_url }}">
+                    {% if current_language == 'en' %}
+                        РУС
+                    {% else %}
+                        ENG
+                    {% endif %}
+                </a>
         </ul>
 </nav>
