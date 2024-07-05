@@ -38,9 +38,6 @@ def index(request):
     #    print(f'Activated language: {lang}')
         request.session[LANGUAGE_SESSION_KEY] = lang
         return redirect(reverse('website:index'))
-    if LANGUAGE_SESSION_KEY in request.session:
-        activate(request.session[LANGUAGE_SESSION_KEY])
-        current_language = request.session[LANGUAGE_SESSION_KEY]
     
     context = {
         'request': request,
@@ -72,7 +69,6 @@ def catalog(request):
         return redirect(reverse('website:catalog'))
     if LANGUAGE_SESSION_KEY in request.session:
         activate(request.session[LANGUAGE_SESSION_KEY])
-        current_language = request.session[LANGUAGE_SESSION_KEY]
     context = {
         'page_obj': page_obj,
         'current_language': current_language,
