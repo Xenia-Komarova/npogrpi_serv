@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load thumbnail %}
 {% block title %}
-  О компании
+{% trans "О компании" %}
 {% endblock %}
 {% block meta_tag %}
 <meta name="description" content="Краткое описание страницы">
@@ -12,8 +13,8 @@
 {% block content %}
 <nav>
 <ul class="breadcrumbs">
-  <li><a href="{% url 'website:index' %}">Главная</a></li>
-  <li>О компании</li>
+  <li><a href="{% url 'website:index' %}">{% trans "Главная" %}</a></li>
+  <li>{% trans "О компании" %}</li>
 </ul>
 </nav>
 {% for page in page_obj %}
@@ -26,7 +27,7 @@
 {% endfor %}
 
   <div class="advantages-container">
-    <h2>Наши преимущества</h2>
+    <h2>{% trans "Наши преимущества" %}</h2>
         {% for advantage in advantages %}
           <div class="advantage">
              <img src="{{ advantage.image.url }}" />
@@ -38,7 +39,7 @@
   </div>
   
     <section class="partners">
-      <h2>Наши партнеры</h2>
+      <h2>{% trans "Наши партнеры" %}</h2>
       <div class="carousel">
           <button class="carousel-button left-button">&#10094;</button>
           <div class="carousel-track-container">

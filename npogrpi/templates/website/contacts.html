@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}
-Наши контакты
+{% trans "Наши контакты" %}
 {% endblock %} 
 {% block meta_tag %}
 <meta name="description" content="Краткое описание страницы">
@@ -11,27 +12,27 @@
 {% block content %}
 <nav>
   <ul class="breadcrumbs">
-    <li><a href="{% url 'website:index' %}">Главная</a></li>
-    <li>Наши контакты</li>
+    <li><a href="{% url 'website:index' %}">{% trans "Главная" %}</a></li>
+    <li>{% trans "Наши контакты" %}</li>
   </ul>
 </nav>
 <div class="contact-container">
-  <h2>Наши контакты</h2>
+  <h2>{% trans "Наши контакты" %}</h2>
 
   <div class="contact-info">
     <div class="left">
-      <h3>Информация о компании:</h3>
+      <h3>{% trans "Информация о компании" %}:</h3>
     {% for page in page_obj %}
-      <p><strong>Адрес:</strong>{{ page.adress }}</p>
-      <p><strong>E-mail:</strong> <a href="mailto:info@grpi.ru">{{ page.email }}</a></p>
-      <p><strong>Телефон:</strong> <a href="tel:+74912470006">{{ page.telephone }}</a></p>
+      <p><strong>{% trans "Адрес" %}:</strong>{{ page.adress }}</p>
+      <p><strong>{% trans "E-mail" %}:</strong> <a href="mailto:info@grpi.ru">{{ page.email }}</a></p>
+      <p><strong>{% trans "Телефон" %}:</strong> <a href="tel:+74912470006">{{ page.telephone }}</a></p>
     </div>
     {% endfor %}
     <div class="right">
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Отправить</button>
+        <button type="submit">{% trans "Отправить" %}</button>
     </form>
     {% if success_message %}
     <div class="alert alert-success">
@@ -40,6 +41,6 @@
     {% endif %}
     </div>
   </div>
-  <p>Нажимая кнопку «Отправить», вы соглашаетесь на <a href="{% url 'website:politico' %}">обработку персональных данных</a></p>
+  <p>{% trans "Нажимая кнопку «Отправить», вы соглашаетесь на" %} <a href="{% url 'website:politico' %}">{% trans "обработку персональных данных" %}</a></p>
 </div>
 {% endblock %} 

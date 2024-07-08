@@ -13,14 +13,14 @@
 {% block content %}
 <nav>
   <ul class="breadcrumbs">
-    <li><a href="{% url 'website:index' %}">Главная</a></li>
-    <li>Каталог</li>
+    <li><a href="{% url 'website:index' %}">{% trans "Главная" %}</a></li>
+    <li>{% trans "Каталог" %}</li>
   </ul>
 </nav>
 <div class="button-container">
-<a href="javascript:history.back()" class="btn">Назад</a>
-<a href="{% url 'calculator:product_search' %}" class="btn">Подборать оборудование</a>
-<a href="{% url 'calculator:mgrp' %}" class="btn">Подобрать комплект МГРП</a>
+<a href="javascript:history.back()" class="btn">{% trans "Назад" %}</a>
+<a href="{% url 'calculator:product_search' %}" class="btn">{% trans "Подборать оборудование" %}</a>
+<a href="{% url 'calculator:mgrp' %}" class="btn">{% trans "Подобрать комплект МГРП" %}</a>
 </div>
 <section class="catalog-container">
     {% for page in page_obj %}
@@ -30,7 +30,7 @@
    		</div>
    		 <div class="catalog-info">
             <h2>{{ page.display_name }}</h2>
-            <a href="{% url 'website:type_product' type_slug=page.slug %}" class="details-button">Подробнее</a>
+            <a href="{% url 'website:type_product' type_slug=page.slug %}" class="details-button">{% trans "Подробнее" %}</a>
         </div>
 </section>
 {% endfor %} 

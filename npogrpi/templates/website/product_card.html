@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}
   {{ product.name }}
 {% endblock %}
@@ -11,14 +12,14 @@
 {% block content %}
 <nav>
   <ul class="breadcrumbs">
-    <li><a href="{% url 'website:index' %}">Главная</a></li>
-    <li><a href="{% url 'website:catalog' %}">Каталог</a></li>
+    <li><a href="{% url 'website:index' %}">{% trans "Главная" %}</a></li>
+    <li><a href="{% url 'website:catalog' %}">{% trans "Каталог" %}</a></li>
     <li><a href="{% url 'website:type_product' type_slug=type_slug %}">{{ product.type }}</a></li>
     <li>{{ product.name }}</li>
   </ul>
 </nav>
 <div class="button-container">
-  <a href="javascript:history.back()" class="btn">Назад</a>
+  <a href="javascript:history.back()" class="btn">{% trans "Назад" %}</a>
 </div>
 <div class="product-card">
   <h1 class="product-title">{{ product.name }}</h1>
@@ -27,15 +28,15 @@
           <img src="{{ product.image.url }}" alt="{{ product.name }}">
       </div>
       <div class="product-details">
-          <p class="product-type">Тип: {{ product.type }}</p>
-          <p class="product-description">Описание: {{ product.description|safe }}</p>
+          <p class="product-type">{% trans "Тип" %}: {{ product.type }}</p>
+          <p class="product-description">{% trans "Описание" %}: {{ product.description|safe }}</p>
           <table class="product-specs">
               <tr>
-                  <th>Характеристики</th>
-                  <th>Значение</th>
+                  <th>{% trans "Характеристики" %}</th>
+                  <th>{% trans "Значение" %}</th>
               </tr>
               <tr>
-                  <td>Условный диаметр хвостовика</td>
+                  <td>{% trans "Условный диаметр хвостовика" %}</td>
                   <td style="text-align: right;">
                     <ul>
                       {% for shank in product.diameter_shank.all %}
@@ -45,7 +46,7 @@
                   </td>
               </tr>
               <tr>
-                  <td>Условный диаметр колонны</td>
+                  <td>{% trans "Условный диаметр колонны" %}</td>
                   <td style="text-align: right;">
                     <ul>
                     {% for column in product.diameter_column.all %}
@@ -55,7 +56,7 @@
                  </td>
               </tr>
               <tr>
-                <td>Диаметр открытого ствола</td>
+                <td>{% trans "Диаметр открытого ствола" %}</td>
                 <td style="text-align: right;">
                   <ul>
                   {% for diameter in product.diameter_open_borehole.all %}
@@ -65,15 +66,15 @@
                 </td>
             </tr>
             <tr>
-              <td>Наружный диаметр оснастки</td>
+              <td>{% trans "Наружный диаметр оснастки" %}</td>
               <td style="text-align: right;">{{ product.fitting_outer_diameter }}</td>
           </tr>
             <tr>
-              <td>Внутренний диаметр оснастки</td>
+              <td>{% trans "Внутренний диаметр оснастки" %}</td>
               <td style="text-align: right;">{{ product.fitting_inner_diameter }}</td>
             </tr>
             <tr>
-              <td>Длина оснастки</td>
+              <td>{% trans "Длина оснастки" %}</td>
               <td style="text-align: right;">{{ product.fitting_length }}</td>
             </tr>
               <!-- Другие характеристики -->
