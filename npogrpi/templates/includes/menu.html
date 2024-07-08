@@ -1,4 +1,5 @@
-﻿{% load static %}
+{% load static %}
+{% load i18n %}
 <nav>
     <ul class="menu">
         <li>
@@ -22,12 +23,19 @@
                     {% endif %}
 
                 {% endfor %}
-                <a href="{{ switch_lang_url }}">
-                    {% if current_language == 'en' %}
-                        РУС
-                    {% else %}
-                        ENG
-                    {% endif %}
-                </a>
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% if CURRENT_LANGUAGE == "ru" %}
+                <form method="post" action="{% url 'set_language' %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="language" value="en" />
+                  <button type="submit" class="language-switch-button">English</button>
+                </form>
+              {% elif CURRENT_LANGUAGE == "en" %}
+                <form method="post" action="{% url 'set_language' %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="language" value="ru" />
+                  <button type="submit" class="language-switch-button">Русский</button>
+                </form>
+              {% endif %}
         </ul>
 </nav>

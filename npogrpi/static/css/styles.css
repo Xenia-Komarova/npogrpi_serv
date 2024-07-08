@@ -487,3 +487,20 @@ table.center {
     justify-content: center; /* Центрируем элементы по горизонтали */
     margin-top: 20px; /* Добавляем отступ сверху, если нужно */
 }
+
+.language-switch-button {
+    background-color: transparent; /* Прозрачный фон */
+    border: 2px solid #007bff; /* Ярко-голубая рамка */
+    color: #fff; /* Белый цвет текста */
+    font-weight: bold; /* Жирный текст */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Слегка закругленные углы */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Плавный переход при наведении */
+}
+
+.language-switch-button:hover {
+    background-color: #007bff; /* Ярко-голубой фон при наведении */
+    color: #fff; /* Белый текст при наведении */
+    border-color: #fff; /* Белая рамка при наведении */
+}

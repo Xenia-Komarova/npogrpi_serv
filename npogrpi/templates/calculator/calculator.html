@@ -1,25 +1,26 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 {% load thumbnail %}
 {% block title %}
-  Подбор оборудования
+{% trans "Подбор оборудования" %}
 {% endblock %}
 {% block content %}
 <nav>
   <ul class="breadcrumbs">
-    <li><a href="{% url 'website:index' %}">Главная</a></li>
-    <li>Подбор оборудования</li>
+    <li><a href="{% url 'website:index' %}">{% trans "Главная" %}</a></li>
+    <li>{% trans "Подбор оборудования" %}</li>
 </ul>
   </nav>
 <div class="button-container">
-    <a href="javascript:history.back()" class="btn">Назад</a>
+    <a href="javascript:history.back()" class="btn">{% trans "Назад" %}</a>
 </div>
-<h1>Подбор оборудования</h1>
+<h1>{% trans "Подбор оборудования" %}</h1>
 <div class="form-center">
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Найти</button>
+    <button type="submit">{% trans "Найти" %}</button>
   </form>
 </div>
-<p>Нажимая кнопку «Найти», вы соглашаетесь на <a href="{% url 'website:politico' %}">обработку персональных данных</a></p>
+<p>{% trans "Нажимая кнопку «Найти», вы соглашаетесь на" %}<a href="{% url 'website:politico' %}">{% trans "обработку персональных данных" %}</a></p>
 {% endblock %}

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
   {% load static %}
   <head>
@@ -21,11 +21,11 @@
     <link rel="android-chrome-192x192" sizes="192x192" href={% static "img/fav/android-chrome-192x192.png" %}>
     <link rel="icon" type="image/png" sizes="32x32" href={% static "img/fav/favicon-32x32.png" %}>
     <link rel="icon" type="image/png" sizes="16x16" href={% static "img/fav/favicon-16x16.png" %}>
-    <link rel="stylesheet" href={% static "css/styles.css" %}>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
   </head>
   <body>
       {% include 'includes/header.html' %}
-      <main>
+
           {% block content %}
             Здесь что-то будет
           {% endblock %}

@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% load thumbnail %}
 {% block title %}
@@ -16,22 +16,22 @@
   <div class="hero-text">
       <h1>{% trans "Добро пожаловать в нашу компанию!" %}</h1>
         <p>{% trans "Мы предлагаем высококачественные услуги." %}</p>
-      <a href="{% url 'website:catalog' %}" class="btn">Перейти в каталог</a>
+      <a href="{% url 'website:catalog' %}" class="btn">{% trans "Перейти в каталог" %}</a>
   </div>
 </section>
 <div class="button-container">
-<a href="{% url 'calculator:product_search' %}" class="btn">Подборать оборудование</a>
-<a href="{% url 'calculator:mgrp' %}" class="btn">Подобрать комплект МГРП</a>
+<a href="{% url 'calculator:product_search' %}" class="btn">{% trans "Подборать оборудование" %}</a>
+<a href="{% url 'calculator:mgrp' %}" class="btn">{% trans "Подобрать комплект МГРП" %}</a>
 </div>
 <section class="about">
-    <h2>О компании</h2>
+    <h2>{% trans "О компании" %}</h2>
     <div class="about-content">
       <p> {{ page_obj.display_about }} </p>
-    <a href="{% url 'website:about' %}" class="details-button">Подробнее</a>
+    <a href="{% url 'website:about' %}" class="details-button">{% trans "Подробнее" %}</a>
   </div>
 </section>
 <div class="advantages-container">
-  <h2>Наши преимущества</h2>
+  <h2>{% trans "Наши преимущества" %}</h2>
       {% for advantage in advantages %}
         <div class="advantage">
            <img src="{{ advantage.image.url }}" />
@@ -42,7 +42,7 @@
     </div>
 </div>
   <section class="partners">
-    <h2>Наши партнеры</h2>
+    <h2>{% trans "Наши партнеры" %}</h2>
     <div class="carousel">
         <button class="carousel-button left-button">&#10094;</button>
         <div class="carousel-track-container">

@@ -220,3 +220,12 @@ msgstr "You can find all the proposed shank accessories in the electronic"
 
 msgid "каталоге."
 msgstr "catalog."
+
+msgid "Имя"
+msgstr "Name"
+
+msgid "Компания"
+msgstr "Company"
+
+msgid "Подбор оборудования"
+msgstr "Equipment selection"

@@ -1,4 +1,5 @@
 ﻿from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from website.models import (DiameterColumn, DiameterOpenBorehole,
                             DiameterShank, Type)
@@ -11,10 +12,10 @@ class ProductSearchForm(forms.ModelForm):
         model = ContactSearch
         fields = ['name', 'phone_number', 'email', 'company', 'type', 'diameter_column', 'diameter_shank', 'diameter_open_borehole']
 
-    type = forms.ModelChoiceField(queryset=Type.objects.filter(incalc__in=[True]), label='Тип оборудования')
-    diameter_column = forms.ModelChoiceField(queryset=DiameterColumn.objects.all(), label='Условный диаметр колонны')
-    diameter_shank = forms.ModelChoiceField(queryset=DiameterShank.objects.all(), label='Условный диаметр хвостовика')
-    diameter_open_borehole = forms.ModelChoiceField(queryset=DiameterOpenBorehole.objects.all(), label='Диаметр открытого ствола')
+    type = forms.ModelChoiceField(queryset=Type.objects.filter(incalc__in=[True]), label=_('Тип оборудования'))
+    diameter_column = forms.ModelChoiceField(queryset=DiameterColumn.objects.all(), label=_('Условный диаметр колонны'))
+    diameter_shank = forms.ModelChoiceField(queryset=DiameterShank.objects.all(), label=_('Условный диаметр хвостовика'))
+    diameter_open_borehole = forms.ModelChoiceField(queryset=DiameterOpenBorehole.objects.all(), label=_('Диаметр открытого ствола'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
